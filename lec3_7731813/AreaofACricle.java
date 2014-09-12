@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -9,7 +11,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * 7731813
  */
 
-public class AreaofTriangle {
+public class AreaofACricle {
 
 	public static void main(final String[] args) throws ClassNotFoundException,
 	InstantiationException, IllegalAccessException,
@@ -17,17 +19,16 @@ public class AreaofTriangle {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		while (true) {
 			try {
-				final double b = Double.parseDouble(JOptionPane
-						.showInputDialog("What is the base of the triange?"));
-				final double h = Double
-						.parseDouble(JOptionPane
-								.showInputDialog("What is the height of the triangle?"));
-				final double area = (b * h) / 2 > 2 ? ((b * h) / 2) : -1;
+				final double r = Double.parseDouble(JOptionPane
+						.showInputDialog("What is the radius of the circle?"));
+				final double area = Math.pow(r, 2) * Math.PI;
 				JOptionPane
 				.showMessageDialog(
 						null,
-						"The area of the triangle is "
-								+ (area > 0 ? area + " units squared."
+						"The area of the circle is "
+								+ (area > 0 ? new DecimalFormat()
+												.format(area)
+												+ " units squared."
 										: "not calcultable with the numbers specified."));
 			} catch (final Exception e) {
 				e.printStackTrace();
