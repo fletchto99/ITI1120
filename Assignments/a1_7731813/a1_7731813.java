@@ -16,7 +16,7 @@ public class a1_7731813 {
 		System.out.println("What is the temperature in Farenheit?");
 		final double farenheit = scan.nextDouble();
 		System.out
-				.printf("%.1f degrees farenheit is equivlent to %.3f degrees kelvin.\r\n",
+				.printf("%.1f degrees farenheit is equivlent to %.3f degrees kelvin.%n",
 						farenheit, ((farenheit - 32) / 1.8) + 273.15);
 		/*
 		 * Question 2
@@ -27,7 +27,7 @@ public class a1_7731813 {
 		final double ounces = scan.nextDouble();
 		final double conversion = ((16 * pounds) + ounces) / 35.274;
 		System.out
-				.printf("%.1f pounds and %.1f ounces is equivlent to %.3f kilograms.\r\n",
+				.printf("%.1f pounds and %.1f ounces is equivlent to %.3f kilograms. %n",
 						pounds, ounces, conversion);
 		/*
 		 * Question 3
@@ -108,7 +108,7 @@ public class a1_7731813 {
 		final double d = scan.nextDouble();
 		final double y1 = Math.floor(d);
 		final double z1 = 12.0 * Math.abs(d - y1);
-		System.out.printf("(%.1f, %.1f)\r\n", y1, z1);
+		System.out.printf("(%.1f, %.1f)%n", y1, z1);
 		/*
 		 * Question 8
 		 */
