@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 // Family name, Given name: Langlois, Matthew
@@ -12,7 +11,7 @@ public class a1_7731813 {
 		final Scanner scan = new Scanner(System.in);
 		/*
 		 * Question 1
-		 */
+		 *
 		System.out.println("What is the temperature in Farenheit?");
 		final double farenheit = scan.nextDouble();
 		System.out
@@ -113,15 +112,24 @@ public class a1_7731813 {
 		 * Question 8
 		 */
 		System.out.println("Write 3 integers seprated by a space.");
-		final int[] ints = new int[] { Integer.parseInt(scan.next()),
-				Integer.parseInt(scan.next()), Integer.parseInt(scan.next()) };
-		Arrays.sort(ints);
-		System.out.println(ints[0]
-				+ (ints[0] == ints[1] ? " is a median." : " is not a median."));
-		System.out.println(ints[1]
-				+ (ints[1] <= ints[2] ? " is a median." : " is not a median."));
-		System.out.println(ints[2]
-				+ (ints[2] <= ints[1] ? " is a median." : " is not a median."));
+		int med_1 = Integer.parseInt(scan.next());
+		int med_2 = Integer.parseInt(scan.next());
+		int med_3 = Integer.parseInt(scan.next());
+		System.out
+				.println(med_1
+						+ (((med_1 == med_2 || med_1 == med_3)
+								|| (med_1 < med_2 && med_1 > med_3) || (med_1 < med_3 && med_1 > med_2)) ? " is a median."
+								: " is not a median."));
+		System.out
+				.println(med_2
+						+ (((med_2 == med_1 || med_2 == med_3)
+								|| (med_2 < med_1 && med_2 > med_3) || (med_2 < med_3 && med_2 > med_1)) ? " is a median."
+								: " is not a median."));
+		System.out
+				.println(med_3
+						+ (((med_3 == med_2 || med_3 == med_1)
+								|| (med_3 < med_2 && med_3 > med_1) || (med_3 < med_1 && med_3 > med_2)) ? " is a median."
+								: " is not a median."));
 		/*
 		 * Question 9
 		 */
