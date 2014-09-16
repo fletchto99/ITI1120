@@ -1,4 +1,3 @@
-import static java.lang.System.out;
 
 /*
  * Course: ITI1120
@@ -9,8 +8,8 @@ import static java.lang.System.out;
 
 public class Hello {
 
-	public static void main(String[] args) {
-		out.println("Hello World!");
+	public static void main(final String[] args) {
+		System.out.println("Hello World!");
 	}
 
 }
