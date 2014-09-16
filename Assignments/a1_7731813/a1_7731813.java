@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 // Family name, Given name: Langlois, Matthew
@@ -26,9 +25,8 @@ public class a1_7731813 {
 		/*
 		 * Question 2
 		 */
-		System.out.println("How many pounds are there?");
+		System.out.println("How many pounds are there and how many ounces are there? Format: x.x x.x");
 		final double pounds = scan.nextDouble();
-		System.out.println("How many ounces are there?");
 		final double ounces = scan.nextDouble();
 		final double conversion = ((16 * pounds) + ounces) / 35.274;
 		System.out
@@ -118,30 +116,39 @@ public class a1_7731813 {
 		 * Question 8
 		 */
 		System.out.println("Write 3 integers seprated by a space.");
-		final int[] ints = new int[] { Integer.parseInt(scan.next()),
-				Integer.parseInt(scan.next()), Integer.parseInt(scan.next()) };
-		Arrays.sort(ints);
-		System.out.println(ints[0]
-				+ (ints[0] == ints[1] ? " is a median." : " is not a median."));
-		System.out.println(ints[1]
-				+ (ints[1] <= ints[2] ? " is a median." : " is not a median."));
-		System.out.println(ints[2]
-				+ (ints[2] <= ints[1] ? " is a median." : " is not a median."));
+		int med_1 = scan.nextInt();
+		int med_2 = scan.nextInt();
+		int med_3 = scan.nextInt();
+		System.out
+				.println(med_1
+						+ (((med_1 == med_2 || med_1 == med_3)
+								|| (med_1 < med_2 && med_1 > med_3) || (med_1 < med_3 && med_1 > med_2)) ? " is a median."
+								: " is not a median."));
+		System.out
+				.println(med_2
+						+ (((med_2 == med_1 || med_2 == med_3)
+								|| (med_2 < med_1 && med_2 > med_3) || (med_2 < med_3 && med_2 > med_1)) ? " is a median."
+								: " is not a median."));
+		System.out
+				.println(med_3
+						+ (((med_3 == med_2 || med_3 == med_1)
+								|| (med_3 < med_2 && med_3 > med_1) || (med_3 < med_1 && med_3 > med_2)) ? " is a median."
+								: " is not a median."));
 		/*
 		 * Question 9
 		 */
 		System.out.println("Enter coordnates in the form X Y.");
-		final double x = Double.parseDouble(scan.next());
-		final double y = Double.parseDouble(scan.next());
+		final double x = scan.nextDouble();
+		final double y = scan.nextDouble();
 		System.out.println("Enter the side length of the square.");
 		final double length = scan.nextDouble();
 		System.out.println("Enter a test point in the form X Y.");
-		final double test_x = Double.parseDouble(scan.next());
-		final double test_y = Double.parseDouble(scan.next());
+		final double test_x = scan.nextDouble();
+		final double test_y = scan.nextDouble();
 		System.out
-				.println((test_x > x && test_y > y && test_x < x + length && test_y < y
-						+ length) ? "The testpoint is within the bounds of the square."
-						: "The test point is not within the bounds of the square.");
+				.printf((test_x > x && test_y > y && test_x < x + length && test_y < y
+						+ length) ? "The test point (%.1f, %.1f) is within the bounds of the square. %n"
+						: "The test point (%.1f, %.1f) is not within the bounds of the square. %n", test_x, test_y);
 		/*
 		 * Question 10
 		 */
