@@ -11,7 +11,7 @@ public class a1_7731813 {
 		final Scanner scan = new Scanner(System.in);
 		/*
 		 * Question 1
-		 *
+		 */
 		System.out.println("What is the temperature in Farenheit?");
 		final double farenheit = scan.nextDouble();
 		System.out
@@ -20,9 +20,8 @@ public class a1_7731813 {
 		/*
 		 * Question 2
 		 */
-		System.out.println("How many pounds are there?");
+		System.out.println("How many pounds are there and how many ounces are there? Format: x.x x.x");
 		final double pounds = scan.nextDouble();
-		System.out.println("How many ounces are there?");
 		final double ounces = scan.nextDouble();
 		final double conversion = ((16 * pounds) + ounces) / 35.274;
 		System.out
@@ -112,9 +111,9 @@ public class a1_7731813 {
 		 * Question 8
 		 */
 		System.out.println("Write 3 integers seprated by a space.");
-		int med_1 = Integer.parseInt(scan.next());
-		int med_2 = Integer.parseInt(scan.next());
-		int med_3 = Integer.parseInt(scan.next());
+		int med_1 = scan.nextInt();
+		int med_2 = scan.nextInt();
+		int med_3 = scan.nextInt();
 		System.out
 				.println(med_1
 						+ (((med_1 == med_2 || med_1 == med_3)
@@ -134,17 +133,17 @@ public class a1_7731813 {
 		 * Question 9
 		 */
 		System.out.println("Enter coordnates in the form X Y.");
-		final double x = Double.parseDouble(scan.next());
-		final double y = Double.parseDouble(scan.next());
+		final double x = scan.nextDouble();
+		final double y = scan.nextDouble();
 		System.out.println("Enter the side length of the square.");
 		final double length = scan.nextDouble();
 		System.out.println("Enter a test point in the form X Y.");
-		final double test_x = Double.parseDouble(scan.next());
-		final double test_y = Double.parseDouble(scan.next());
+		final double test_x = scan.nextDouble();
+		final double test_y = scan.nextDouble();
 		System.out
-				.println((test_x > x && test_y > y && test_x < x + length && test_y < y
-						+ length) ? "The testpoint is within the bounds of the square."
-						: "The test point is not within the bounds of the square.");
+				.printf((test_x > x && test_y > y && test_x < x + length && test_y < y
+						+ length) ? "The test point (%.1f, %.1f) is within the bounds of the square. %n"
+						: "The test point (%.1f, %.1f) is not within the bounds of the square. %n", test_x, test_y);
 		/*
 		 * Question 10
 		 */
