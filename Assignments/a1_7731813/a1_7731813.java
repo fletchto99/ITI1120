@@ -9,7 +9,12 @@ import java.util.Scanner;
 public class a1_7731813 {
 
 	public static void main(final String[] args) {
+
+		/*
+		 * Create a scanner instence to read user input via the console (System.in)
+		 */
 		final Scanner scan = new Scanner(System.in);
+
 		/*
 		 * Question 1
 		 */
@@ -100,7 +105,7 @@ public class a1_7731813 {
 		System.out.println("Please enter an uppercase letter.");
 		scan.nextLine(); // Consume the empty line
 		System.out.println("The lowercase version of you letter is "
-				+ scan.nextLine().toLowerCase() + ".");
+				+ (char) (scan.nextLine().charAt(0) + 32) + ".");
 		/*
 		 * Question 7
 		 */
