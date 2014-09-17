@@ -193,5 +193,7 @@ public class a1_7731813 {
          */
         System.out.println("All done, have a nice day :)");
         scan.close();
+
     }
+
 }
