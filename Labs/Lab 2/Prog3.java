@@ -8,7 +8,7 @@ class Prog3
     {
         // code for the main method
         
-        System.out.println("ITI1120, first example program")
+        System.out.println("ITI1120, first example program");
         System.out.println("*** This is GREAT ***") ;
     }
 

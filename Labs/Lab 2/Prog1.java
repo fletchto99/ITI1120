@@ -1,5 +1,5 @@
 // ITI1120 first example program
-import java.io.*;  // imports input/output classes (e.g. System)
+// imports input/output classes (e.g. System)
 
 class Prog1          // Prog1 is the name of the class
 {

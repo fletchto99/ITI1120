@@ -4,7 +4,7 @@ class Prog2
     {
         // code for the main method
         
-        System.out.println("ITI1120, first buggy program) ;
+        System.out.println("ITI1120, first buggy program") ;
     }
 
 }
