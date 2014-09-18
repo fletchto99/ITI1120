@@ -1,8 +1,8 @@
 // ITI1120 Program with error
 
-class Prog5
+public class Prog5
 {
-    public static void notMain(String[] args)
+    public static void main(String[] args)
     {
         // code for the main method
         
