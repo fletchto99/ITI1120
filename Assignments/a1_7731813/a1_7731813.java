@@ -26,7 +26,7 @@ public class a1_7731813 {
          * Question 2
          */
         System.out
-                .println("How many pounds are there and how many ounces are there? Format: x.x x.x");
+                .println("How many pounds are there and how many ounces are there? Please enter two real numbers seperated by a space.");
         final double pounds = scan.nextDouble();
         final double ounces = scan.nextDouble();
         final double conversion = ((16 * pounds) + ounces) / 35.274;
