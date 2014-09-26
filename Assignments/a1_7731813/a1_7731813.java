@@ -177,7 +177,7 @@ public class a1_7731813 {
          * Question 10
          */
         System.out.println("Please enter the amount owing.");
-        int remainder = (int) (Math.ceil(scan.nextDouble() * 100));
+        int remainder = (int) (Math.round(scan.nextDouble() * 100));
         int coins = remainder / 25;
         remainder %= 25;
         coins += remainder / 10;
