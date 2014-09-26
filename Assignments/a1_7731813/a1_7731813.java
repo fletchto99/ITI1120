@@ -10,7 +10,7 @@ public class a1_7731813 {
     public static void main(final String[] args) {
 
         /*
-         * Create a scanner instence to read user input via the console (System.in)
+         * Create a scanner instance to read user input via the console (System.in)
          */
         final Scanner scan = new Scanner(System.in);
 
@@ -145,19 +145,19 @@ public class a1_7731813 {
         final int med_3 = scan.nextInt();
         System.out
                 .println(med_1
-                        + (((med_1 == med_2 || med_1 == med_3)
-                                || (med_1 < med_2 && med_1 > med_3) || (med_1 < med_3 && med_1 > med_2)) ? " is a median."
-                                : " is not a median."));
+                        + " is a median. This is: "
+                        + ((med_1 == med_2 || med_1 == med_3)
+                                || (med_1 < med_2 && med_1 > med_3) || (med_1 < med_3 && med_1 > med_2)));
         System.out
                 .println(med_2
-                        + (((med_2 == med_1 || med_2 == med_3)
-                                || (med_2 < med_1 && med_2 > med_3) || (med_2 < med_3 && med_2 > med_1)) ? " is a median."
-                                : " is not a median."));
+                        + " is a median. This is: "
+                        + ((med_2 == med_1 || med_2 == med_3)
+                                || (med_2 < med_1 && med_2 > med_3) || (med_2 < med_3 && med_2 > med_1)));
         System.out
                 .println(med_3
-                        + (((med_3 == med_2 || med_3 == med_1)
-                                || (med_3 < med_2 && med_3 > med_1) || (med_3 < med_1 && med_3 > med_2)) ? " is a median."
-                                : " is not a median."));
+                        + " is a median. This is: "
+                        + ((med_3 == med_2 || med_3 == med_1)
+                                || (med_3 < med_2 && med_3 > med_1) || (med_3 < med_1 && med_3 > med_2)));
         /*
          * Question 9
          */
@@ -194,5 +194,4 @@ public class a1_7731813 {
         scan.close();
 
     }
-
 }
