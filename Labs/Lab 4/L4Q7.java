@@ -21,6 +21,7 @@ public class L4Q7 {
             System.out.printf("You have won nothing, the random number was %d",
                     randomNumber);
         }
+        s.close();
     }
 
     static int reverse(int n) {
