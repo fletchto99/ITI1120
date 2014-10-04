@@ -23,7 +23,7 @@ public class L4Q6 {
     }
 
     private static int sumOfSquares(int n) {
-        if (n == 1) {
+        if (n <= 1) {
             return 1;
         }
         return (int) (Math.pow(n, 2) + sumOfSquares(n - 1));
