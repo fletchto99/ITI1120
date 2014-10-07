@@ -11,16 +11,17 @@ public class A2Q6 {
 
     private static void drawTree(int size) {
         for (int i = 1; i <= size; i++) {
-            for (int spaces = 0; spaces < size - i; spaces++) {
-                System.out.print(" ");
-            }
-            for (int stars = 0; stars < (2*i)-1; stars++) {
-                System.out.print("*");
+            for (int spaces = 0; spaces < size - i + ((2 * i) - 1); spaces++) {
+                if (spaces < size - i) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
             }
             System.out.println();
         }
-        for(int i = 0; i < 2; i++) {
-            for(int spaces=1; spaces < size; spaces++) {
+        for (int i = 0; i < 2; i++) {
+            for (int spaces = 1; spaces < size; spaces++) {
                 System.out.print(" ");
             }
             System.out.println("*");
