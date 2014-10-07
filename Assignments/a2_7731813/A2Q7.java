@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class A2Q7 {
 
     public static void main(String[] args) {
-        int random = new Random().ints(1, 1, 100).findFirst().getAsInt();
+        int random = random(1, 3);
         System.out
                 .printf("Do you want an:%n1. Easy Game?%n2. Difficult Game?%n3. Very hard game?%n");
         Scanner s = new Scanner(System.in);
@@ -17,20 +17,16 @@ public class A2Q7 {
             }
             System.out.println("Invalid choice.");
         }
+
         switch (gamemode) {
             case 1:
-                playGame(s,
-                        new Random().ints(1, 20, 30).findFirst().getAsInt(),
-                        random);
+                playGame(s, random(20, 30), random);
                 break;
             case 2:
-                playGame(s,
-                        new Random().ints(1, 10, 15).findFirst().getAsInt(),
-                        random);
+                playGame(s, random(10, 15), random);
                 break;
             case 3:
-                playGame(s, new Random().ints(1, 1, 5).findFirst().getAsInt(),
-                        random);
+                playGame(s, random(1, 5), random);
                 break;
         }
         System.out.println("Thanks for playing");
@@ -52,5 +48,19 @@ public class A2Q7 {
             }
         }
         System.out.printf("You loose :( -- The number was %d%n", random);
+    }
+
+    /**
+     * Returns a random integer with min as the inclusive lower bound and max as
+     * the inclusive upper bound.
+     * 
+     * @param min
+     *            The lower bounds to return
+     * @param max
+     *            The upper bounds to return
+     * @return A random integer between the bounds specified
+     */
+    public static int random(int min, int max) {
+        return min + new Random().nextInt(max - min + 1);
     }
 }

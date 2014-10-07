@@ -11,8 +11,8 @@ public class A2Q6 {
 
     private static void drawTree(int size) {
         for (int i = 1; i <= size; i++) {
-            for (int spaces = 0; spaces < size - i + ((2 * i) - 1); spaces++) {
-                if (spaces < size - i) {
+            for (int j = 0; j < size + (i-1); j++) {
+                if (j < size - i) {
                     System.out.print(" ");
                 } else {
                     System.out.print("*");
