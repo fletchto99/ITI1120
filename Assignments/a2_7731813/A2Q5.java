@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+//Family name, Given name: Langlois, Matthew
+//Student number: 7731813
+//Course: IT1 1120
+//Assignment Number: 2
+
 public class A2Q5 {
 
     public static void main(String[] args) {

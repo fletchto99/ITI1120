@@ -1,6 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
 
+//Family name, Given name: Langlois, Matthew
+//Student number: 7731813
+//Course: IT1 1120
+//Assignment Number: 2
+
 public class A2Q7 {
 
     public static void main(String[] args) {
@@ -50,17 +55,7 @@ public class A2Q7 {
         System.out.printf("You loose :( -- The number was %d%n", random);
     }
 
-    /**
-     * Returns a random integer with min as the inclusive lower bound and max as
-     * the inclusive upper bound.
-     * 
-     * @param min
-     *            The lower bounds to return
-     * @param max
-     *            The upper bounds to return
-     * @return A random integer between the bounds specified
-     */
     public static int random(int min, int max) {
-        return min + new Random().nextInt(max - min + 1);
+        return min + new Random().nextInt(max - min + 1); //inclusive of min and max
     }
 }
