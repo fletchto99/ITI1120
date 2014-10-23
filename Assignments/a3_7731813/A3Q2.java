@@ -5,11 +5,14 @@
 
 import java.util.Scanner;
 
+//Family name, Given name: Langlois, Matthew
+//Student number: 7731813
+//Course: IT1 1120
+//Assignment Number: 3
+
 public class A3Q2 {
     public static void main(String[] args) {
-
         // part (a) of the main
-
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("***************************");
@@ -67,47 +70,90 @@ public class A3Q2 {
             return;
         }
 
-        int sqStart = -1;
-        int sqEnd = -1;
-        for (int i = 0; i < word.length; i++) {
-            if (i == word.length - 1) {
-                System.out.println("The word is square free.");
-                return;
-            }
-            if (word[i] == word[i + 1]) {
-                sqStart = i;
-                sqEnd = i + 1;
-                break;
+        for (int i = 0; i <= word.length % 2; i++) {
+            for (int j = 1; j <= word.length / 2; j++) {
+                int subwords = (word.length / j - (word.length / j) % 2) - 1;
+                for (int k = 0; k < subwords; k++) {
+                    boolean sqFree = false;
+                    for (int idx = ((k * j) + i); idx < (((k + 1) * j) + i); idx++) {
+                        if (word[idx] != word[idx + j]) {
+                            sqFree = true;
+                            break;
+                        }
+                    }
+                    if (!sqFree) {
+                        System.out
+                                .println("The word, "
+                                        + new String(word)
+                                        + ", is not square free, since it has subword, "
+                                        + new String(word, ((k * j) + i), j)
+                                        + " two times starting at position "
+                                        + ((k * j) + i));
+                        return;
+                    }
+                }
             }
         }
-        System.out.println("The word, " + toWord(word)
-                + ", is not square free, since it has subword,"
-                + toWord(word, sqStart, sqEnd)
-                + " two times starting at position " + sqStart);
+        System.out.println("The word is square free.");
 
-    }
-
-    public static String toWord(char[] chars) {
-        return toWord(chars, 0, chars.length);
-    }
-
-    public static String toWord(char[] chars, int begin, int end) {
-        String s = "";
-        for (int i = begin; i < end; i++) {
-            s += chars[i];
-        }
-        return s;
     }
 
     // a method the produces a square free word of length n based on Thue's construction
     public static char[] makeSquareFree(int n) {
-
         char[] sfword = new char[n];
-        
-        
-        
-        while (sfword.length < n) {
-            //dowork
+        sfword[0] = 'a';
+        while (true) {
+            int a = 0;
+            int b = 0;
+            int c = 0;
+            // find out the length of the next array
+            for (int i = 0; i < sfword.length; i++) {
+                if (sfword[i] == 'a') {
+                    a++;
+                } else if (sfword[i] == 'b') {
+                    b++;
+                } else if (sfword[i] == 'c') {
+                    c++;
+                }
+            }
+            char[] tmp = new char[a * 5 + b * 6 + c * 7];
+            int idx = 0;
+            for (char ch : sfword) {
+                if (ch == 'a') {
+                    tmp[idx] = 'a';
+                    tmp[idx + 1] = 'b';
+                    tmp[idx + 2] = 'c';
+                    tmp[idx + 3] = 'a';
+                    tmp[idx + 4] = 'b';
+                    idx += 5;
+                } else if (ch == 'b') {
+                    tmp[idx] = 'a';
+                    tmp[idx + 1] = 'c';
+                    tmp[idx + 2] = 'a';
+                    tmp[idx + 3] = 'b';
+                    tmp[idx + 4] = 'c';
+                    tmp[idx + 5] = 'b';
+                    idx += 6;
+                } else if (ch == 'c') {
+                    tmp[idx] = 'a';
+                    tmp[idx + 1] = 'c';
+                    tmp[idx + 2] = 'b';
+                    tmp[idx + 3] = 'c';
+                    tmp[idx + 4] = 'a';
+                    tmp[idx + 5] = 'c';
+                    tmp[idx + 6] = 'b';
+                    idx += 7;
+                }
+            }
+            for (int i = 0; i < tmp.length; i++) {
+                if (i == n) {
+                    break;
+                }
+                sfword[i] = tmp[i];
+            }
+            if (tmp.length >= n) {
+                break;
+            }
         }
 
         return sfword;
