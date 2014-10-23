@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+//Family name, Given name: Langlois, Matthew
+//Student number: 7731813
+//Course: IT1 1120
+//Assignment Number: 3
+
 public class A3Q1 {
 
     public static void main(String[] args) throws Exception {
@@ -8,15 +13,33 @@ public class A3Q1 {
 
         System.out
                 .printf("Which sort routine would you like to use?%n1. Quicksort%n2. bubblesort%n3. insertionsort%n4. selection sort?%n");
+
         int routine = scan.nextInt();
+
         System.out.println("How many elements are in the array?");
+
         int amount = scan.nextInt();
 
         int[] array = new int[amount];
+
         System.out.println("Please enter the values of the unsorted array: ");
+
         for (int i = 0; i < array.length; i++) {
             array[i] = scan.nextInt();
         }
+
+        median(array, routine);
+
+        System.out.print("The sorted array is ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+
+        scan.close();
+    }
+
+    public static void median(int[] array, int routine) {
         if (array.length > 1) {
             switch (routine) {
                 case 1:
@@ -33,6 +56,7 @@ public class A3Q1 {
                     break;
             }
         }
+
         if (array.length % 2 == 0) {
             if (array[(array.length / 2) - 1] == array[(array.length / 2)]) {
                 System.out.printf("The median is %d %n",
@@ -40,16 +64,11 @@ public class A3Q1 {
             } else {
 
             }
-            System.out.printf("The median is %d and %d %n", array[(array.length / 2) - 1], array[(array.length / 2)]);
+            System.out.printf("The median is %d and %d %n",
+                    array[(array.length / 2) - 1], array[(array.length / 2)]);
         } else {
             System.out.printf("The median is %d %n", array[(array.length / 2)]);
         }
-        System.out.print("The sorted array is ");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-        scan.close();
     }
 
     public static void selectionSort(int data[]) {
@@ -59,7 +78,7 @@ public class A3Q1 {
             // see if there is a smaller number further in the array
             for (int index = i + 1; index < data.length; index++) {
                 if (data[index] < data[smallest]) {
-                    swap(data, smallest, index);
+                    swapElement(data, smallest, index);
                 }
             }
         }
@@ -73,7 +92,7 @@ public class A3Q1 {
                 // compare side-by-side elements and swap them if
                 // first element is greater than second element
                 if (data[element] > data[element + 1]) {
-                    swap(data, element, element + 1); // call swap method
+                    swapElement(data, element, element + 1); // call swap method
                 }
             }
         }
@@ -135,7 +154,7 @@ public class A3Q1 {
     }
 
     // swap the elements
-    public static void swap(int array2[], int first, int second) {
+    public static void swapElement(int array2[], int first, int second) {
         int hold = array2[first];
         array2[first] = array2[second];
         array2[second] = hold;
