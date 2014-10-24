@@ -88,7 +88,7 @@ public class A3Q2 {
                                         + ", is not square free, since it has subword, "
                                         + new String(word, ((k * j) + i), j)
                                         + " two times starting at position "
-                                        + ((k * j) + i));
+                                        + (((k * j) + i)+1));
                         return;
                     }
                 }
