@@ -130,34 +130,34 @@ public class A3Q1 {
     }
 
     // partition from quicksort
-    public static int partition(int data2[], int left, int right) {
+    public static int partition(int data[], int left, int right) {
         boolean moveLeft = true;
-        int separator = data2[left];
+        int separator = data[left];
 
         while (left < right) {
             if (moveLeft == true) {
-                while ((data2[right] >= separator) && (left < right)) {
+                while ((data[right] >= separator) && (left < right)) {
                     right--;
                 }
-                data2[left] = data2[right];
+                data[left] = data[right];
                 moveLeft = false;
             } else {
-                while ((data2[left] <= separator) && (left < right)) {
+                while ((data[left] <= separator) && (left < right)) {
                     left++;
                 }
-                data2[right] = data2[left];
+                data[right] = data[left];
                 moveLeft = true;
             }
         }
-        data2[left] = separator;
+        data[left] = separator;
         return left;
     }
 
     // swap the elements
     public static void swapElement(int array2[], int first, int second) {
-        int hold = array2[first];
+        int tmp = array2[first];
         array2[first] = array2[second];
-        array2[second] = hold;
+        array2[second] = tmp;
     }
 
 }
