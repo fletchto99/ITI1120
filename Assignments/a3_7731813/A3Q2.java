@@ -5,10 +5,10 @@
 
 import java.util.Scanner;
 
-//Family name, Given name: Langlois, Matthew
-//Student number: 7731813
-//Course: IT1 1120
-//Assignment Number: 3
+// Family name, Given name: Langlois, Matthew
+// Student number: 7731813
+// Course: IT1 1120
+// Assignment Number: 3
 
 public class A3Q2 {
     public static void main(String[] args) {
@@ -23,8 +23,10 @@ public class A3Q2 {
             System.out.println("Enter a word and then press enter:");
             String str = keyboard.next();
             char[] word = str.toCharArray();
-
+            System.out.print("Method 1: ");
             isSquareFree(word);
+            System.out.print("Method 2: ");
+            isSquareFree2(word);
             System.out
                     .println("Do you want to test another word? Press y for yes, or another key for no");
 
@@ -54,7 +56,7 @@ public class A3Q2 {
         /* by uncommenting the method call below, you can call isSquareFree with your created word 
          to verify that indeed it is square free */
 
-        // isSquareFree(square_free_word);
+        isSquareFree(square_free_word);
 
         /* uncomment the method call below if you want to test if your solution 
          for part b is correct for n=1000. To use it, type in 1000 for the length when prompted by the program, 
@@ -64,12 +66,50 @@ public class A3Q2 {
         keyboard.close();
     }
 
+    public static void isSquareFree2(char[] word) {
+        if (word.length == 1) {
+            System.out.println("The word is square free.");
+            return;
+        }
+        for (int idx = 0; idx < word.length; idx++) {
+            int offset = -1;
+            for (int i = idx; i < word.length - 1; i++) {
+                for (int j = i + 1; j < word.length; j++) {
+                    if (word[i] == word[j]) {
+                        offset = j - i;
+                        break;
+                    }
+                }
+                if (offset > 0) {
+                    break;
+                }
+            }
+            boolean sqfree = false;
+            if (offset > -1) {
+                for (int i = 0; i < offset; i++) {
+                    if (idx + i + offset >= word.length
+                            || word[idx + i] != word[idx + i + offset]) {
+                        sqfree = true;
+                        break;
+                    }
+                }
+                if (!sqfree) {
+                    System.out.println("The word, " + new String(word)
+                            + ", is not square free, since it has subword, "
+                            + new String(word, idx, offset)
+                            + " two times starting at position " + (idx + 1));
+                    return;
+                }
+            }
+        }
+        System.out.println("The word is square free.");
+    }
+
     public static void isSquareFree(char[] word) {
         if (word.length == 1) {
             System.out.println("The word is square free.");
             return;
         }
-
         for (int i = 0; i <= word.length % 2; i++) {
             for (int j = 1; j <= word.length / 2; j++) {
                 int subwords = (word.length / j - (word.length / j) % 2) - 1;
@@ -88,7 +128,7 @@ public class A3Q2 {
                                         + ", is not square free, since it has subword, "
                                         + new String(word, ((k * j) + i), j)
                                         + " two times starting at position "
-                                        + (((k * j) + i)+1));
+                                        + (((k * j) + i) + 1));
                         return;
                     }
                 }
