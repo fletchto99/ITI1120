@@ -72,29 +72,31 @@ public class A3Q2 {
             return;
         }
         for (int idx = 0; idx < word.length; idx++) {
-            int offset = -1;
             for (int i = idx; i < word.length - 1; i++) {
                 for (int j = i + 1; j < word.length; j++) {
                     if (word[i] == word[j]) {
-                        offset = j - i;
                         boolean sqfree = false;
-                        if (offset > -1) {
-                            for (int pos = 0; pos < offset; pos++) {
-                                if (idx + pos + offset >= word.length
-                                        || word[idx + i] != word[idx + pos + offset]) {
+                        if (j - i > -1) {
+                            for (int pos = 0; pos < j - i; pos++) {
+                                if (idx + pos + j - i >= word.length
+                                        || word[idx + pos] != word[idx + pos
+                                                + j - i]) {
                                     sqfree = true;
                                     break;
                                 }
                             }
                             if (!sqfree) {
-                                System.out.println("The word, " + new String(word)
-                                        + ", is not square free, since it has subword, "
-                                        + new String(word, idx, offset)
-                                        + " two times starting at position " + (idx + 1));
+                                System.out
+                                        .println("The word, "
+                                                + new String(word)
+                                                + ", is not square free, since it has subword, "
+                                                + new String(word, idx, j - i)
+                                                + " two times starting at position "
+                                                + (idx + 1));
                                 return;
                             }
+                            break;
                         }
-                        break;
                     }
                 }
             }
