@@ -19,9 +19,17 @@ public class A3Q2 {
             String str = keyboard.next();
             char[] word = str.toCharArray();
             System.out.print("Method 1: ");
+            long start, total;
+            start = System.nanoTime();
             isSquareFree(word);
+            total = System.nanoTime() - start;
+            System.out.printf("Time taken to execute method 1: %d ns%n", total);
             System.out.print("Method 2: ");
+            start = System.nanoTime();
             isSquareFree2(word);
+            total = System.nanoTime() - start;
+            System.out.printf("Time taken to execute method 2: %d ns%n", total);
+
             System.out
                     .println("Do you want to test another word? Press y for yes, or another key for no");
 
@@ -50,9 +58,15 @@ public class A3Q2 {
 
         /* by uncommenting the method call below, you can call isSquareFree with your created word 
          to verify that indeed it is square free */
-
-        // isSquareFree(square_free_word);
-        // isSquareFree2(square_free_word);
+        long start, total;
+        start = System.nanoTime();
+        isSquareFree(square_free_word);
+        total = System.nanoTime() - start;
+        System.out.printf("Time taken to execute method 1: %dns%n", total);
+        start = System.nanoTime();
+        isSquareFree2(square_free_word);
+        total = System.nanoTime() - start;
+        System.out.printf("Time taken to execute method 2: %dns%n", total);
 
         /* uncomment the method call below if you want to test if your solution 
          for part b is correct for n=1000. To use it, type in 1000 for the length when prompted by the program, 
