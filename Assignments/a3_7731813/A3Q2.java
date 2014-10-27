@@ -77,28 +77,25 @@ public class A3Q2 {
                 for (int j = i + 1; j < word.length; j++) {
                     if (word[i] == word[j]) {
                         offset = j - i;
+                        boolean sqfree = false;
+                        if (offset > -1) {
+                            for (int pos = 0; pos < offset; pos++) {
+                                if (idx + pos + offset >= word.length
+                                        || word[idx + i] != word[idx + pos + offset]) {
+                                    sqfree = true;
+                                    break;
+                                }
+                            }
+                            if (!sqfree) {
+                                System.out.println("The word, " + new String(word)
+                                        + ", is not square free, since it has subword, "
+                                        + new String(word, idx, offset)
+                                        + " two times starting at position " + (idx + 1));
+                                return;
+                            }
+                        }
                         break;
                     }
-                }
-                if (offset > 0) {
-                    break;
-                }
-            }
-            boolean sqfree = false;
-            if (offset > -1) {
-                for (int i = 0; i < offset; i++) {
-                    if (idx + i + offset >= word.length
-                            || word[idx + i] != word[idx + i + offset]) {
-                        sqfree = true;
-                        break;
-                    }
-                }
-                if (!sqfree) {
-                    System.out.println("The word, " + new String(word)
-                            + ", is not square free, since it has subword, "
-                            + new String(word, idx, offset)
-                            + " two times starting at position " + (idx + 1));
-                    return;
                 }
             }
         }
