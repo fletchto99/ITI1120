@@ -1,8 +1,3 @@
-// Family name, Given name:
-// Student number:
-// Course: IT1 1120
-// Assignment Number
-
 import java.util.Scanner;
 
 // Family name, Given name: Langlois, Matthew
@@ -56,7 +51,8 @@ public class A3Q2 {
         /* by uncommenting the method call below, you can call isSquareFree with your created word 
          to verify that indeed it is square free */
 
-        isSquareFree(square_free_word);
+        // isSquareFree(square_free_word);
+        // isSquareFree2(square_free_word);
 
         /* uncomment the method call below if you want to test if your solution 
          for part b is correct for n=1000. To use it, type in 1000 for the length when prompted by the program, 
