@@ -71,28 +71,26 @@ public class A3Q2 {
             for (int i = idx; i < word.length - 1; i++) {
                 for (int j = i + 1; j < word.length; j++) {
                     if (word[i] == word[j]) {
-                        boolean sqfree = false;
-                        if (j - i > -1) {
-                            for (int pos = 0; pos < j - i; pos++) {
-                                if (idx + pos + j - i >= word.length
-                                        || word[idx + pos] != word[idx + pos
-                                                + j - i]) {
-                                    sqfree = true;
-                                    break;
-                                }
+                        boolean flag = false;
+                        for (int pos = 0; pos < j - i; pos++) {
+                            if (idx + pos + j - i >= word.length
+                                    || word[idx + pos] != word[idx + pos + j
+                                            - i]) {
+                                flag = true;
+                                break;
                             }
-                            if (!sqfree) {
-                                System.out
-                                        .println("The word, "
-                                                + new String(word)
-                                                + ", is not square free, since it has subword, "
-                                                + new String(word, idx, j - i)
-                                                + " two times starting at position "
-                                                + (idx + 1));
-                                return;
-                            }
-                            break;
                         }
+                        if (!flag) {
+                            System.out
+                                    .println("The word, "
+                                            + new String(word)
+                                            + ", is not square free, since it has subword, "
+                                            + new String(word, idx, j - i)
+                                            + " two times starting at position "
+                                            + (idx + 1));
+                            return;
+                        }
+                        break;
                     }
                 }
             }
@@ -109,14 +107,14 @@ public class A3Q2 {
             for (int j = 1; j <= word.length / 2; j++) {
                 int subwords = (word.length / j - (word.length / j) % 2) - 1;
                 for (int k = 0; k < subwords; k++) {
-                    boolean sqFree = false;
+                    boolean flag = false;
                     for (int idx = ((k * j) + i); idx < (((k + 1) * j) + i); idx++) {
                         if (word[idx] != word[idx + j]) {
-                            sqFree = true;
+                            flag = true;
                             break;
                         }
                     }
-                    if (!sqFree) {
+                    if (!flag) {
                         System.out
                                 .println("The word, "
                                         + new String(word)
