@@ -51,10 +51,7 @@ public class A3Q2 {
 
         System.out.println("Here is a square-free word of length "
                 + word_length);
-        for (int i = 0; i < word_length; i++) {
-            System.out.print(square_free_word[i]);
-        }
-        System.out.println();
+        System.out.println(new String(square_free_word));
 
         /* by uncommenting the method call below, you can call isSquareFree with your created word 
          to verify that indeed it is square free */
@@ -150,20 +147,18 @@ public class A3Q2 {
         char[] sfword = new char[n];
         sfword[0] = 'a';
         while (true) {
-            int a = 0;
-            int b = 0;
-            int c = 0;
+            int size = 0;
             // find out the length of the next array
             for (int i = 0; i < sfword.length; i++) {
                 if (sfword[i] == 'a') {
-                    a++;
+                    size += 5;
                 } else if (sfword[i] == 'b') {
-                    b++;
+                    size += 6;
                 } else if (sfword[i] == 'c') {
-                    c++;
+                    size += 7;
                 }
             }
-            char[] tmp = new char[a * 5 + b * 6 + c * 7];
+            char[] tmp = new char[size];
             int idx = 0;
             for (char ch : sfword) {
                 if (ch == 'a') {
@@ -192,17 +187,13 @@ public class A3Q2 {
                     idx += 7;
                 }
             }
-            for (int i = 0; i < tmp.length; i++) {
-                if (i == n) {
-                    break;
-                }
+            for (int i = 0; i < tmp.length && i < n; i++) {
                 sfword[i] = tmp[i];
             }
             if (tmp.length >= n) {
                 break;
             }
         }
-
         return sfword;
 
     }
