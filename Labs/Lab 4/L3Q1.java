@@ -2,7 +2,7 @@ public class L3Q1 {
 
     public static void main(String[] args) {
         int i = 10, j = 15, k = 20;
-        double x = 10.0, y = 2.5, z = 100.0;
+        double x = 10.0, y = 2.5;
 
         if (i < j || j < k && x <= y) {
             System.out.println("Executed 1");
@@ -19,12 +19,6 @@ public class L3Q1 {
         }
         if (!(x != i)) {
             System.out.println("Executed 5");
-        }
-        if ('a' != 'b' - 1) {
-            System.out.println("Executed 6");
-        }
-        if (!(!!false || !!true)) {
-            System.out.println("Executed 7");
         }
     }
 
